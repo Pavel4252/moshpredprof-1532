@@ -1,0 +1,27 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Заявка на получение инвентаря{% endblock %}
+{% block panel %}Заявка на получение инвентаря{% endblock %}
+
+{% block main %}
+    <p>{{ last_text }}</p>
+    <br>
+
+    <p>Подать заявку на получение инвентаря:</p>
+    <form method="POST">
+        Введите название инвентаря <input type="text" name="name_inventory">
+        Введите желаемое колличество <input type="text" name="count">
+        <button type="submit">Запросить</button>
+    </form>
+    <br>
+    <p>{{ error }}</p>
+{% endblock %}
+
+{% block menu %}
+    <h2>Меню</h2>
+
+    <li><a href="{{ url_for('just_user') }}">Главная</a></li>
+    <li><a href="{{ url_for('my_inventory') }}">Мой инвентарь</a></li>
+    <li><a href="{{ url_for('names_free_inventory') }}">Доступный инвентарь</a></li>
+    <li><a href="{{ url_for('message_about_break') }}">Сообщить о поломке инвентаря</a></li>
+{% endblock %}

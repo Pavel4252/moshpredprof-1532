@@ -1,0 +1,20 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Переместить в сломанный{% endblock %}
+{% block panel %}Переместить в сломанный{% endblock %}
+{% block main %}
+    <p><a href="{{ url_for('admin') }}">Назад</a></p>
+    <br>
+
+    <p>{{ last_text }}</p>
+    <br>
+
+    <p>Переместить инвентарь в сломанный:</p>
+    <form method="POST">
+        Введите ID сломанного инвенторя <input type="text" name="id_inventory">
+        Опишите поломку <input type="text" name="broken_description">
+        <button type="submit">Переместить</button>
+    </form>
+    <br>
+    <p>{{ error }}</p>
+{% endblock %}
