@@ -1,0 +1,14 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Панель пользователя{% endblock %}
+{% block panel %}Панель пользователя{% endblock %}
+{% block main %}Добро пожаловать, {{ user['db_name'] }}!{% endblock %}
+
+{% block menu %}
+    <h2>Меню</h2>
+
+    <li><a href="{{ url_for('my_inventory') }}">Мой инвентарь</a></li>
+    <li><a href="{{ url_for('names_free_inventory') }}">Доступный инвентарь</a></li>
+    <li><a href="{{ url_for('zayavka_from_user') }}">Подать заявку на получение инвентаря</a></li>
+    <li><a href="{{ url_for('message_about_break') }}">Сообщить о поломке инвентаря</a></li>
+{% endblock %}

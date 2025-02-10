@@ -1,0 +1,17 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Центр уведомлений{% endblock %}
+{% block panel %}Центр уведомлений{% endblock %}
+{% block main %}
+    <p><a href="{{ url_for(back_file) }}">Назад</a></p>
+    <br>
+
+    <p>{{ null_notice }}</p>
+    <br>
+
+  {% for message in notice %}
+    <p>№{{ message['db_id'] }} - От {{ message['db_sender'] }}:</p>
+    <p>{{ message['db_main'] }}</p>
+    <br>
+  {% endfor %}
+{% endblock %}
