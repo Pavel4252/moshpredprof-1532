@@ -1,0 +1,54 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Пользователи{% endblock %}
+{% block panel %}Пользователи{% endblock %}
+
+{% block main %}
+  <p>Я - {{ user['db_name'] }} - {{ user['db_work'] }}</p>
+
+  <details>
+    <summary>Администраторы:</summary>
+    {% for admin in admins %}
+      <p>{{ admin['db_name'] }} - {{ admin['db_work'] }}</p>
+    {% endfor %}
+    {{ null_admins }}
+  </details>
+
+  <details>
+    <summary>Пользователи:</summary>
+    {% for just_user in just_users_whith_inv %}
+      <p>{{ just_user['db_name'] }} - {{ just_user['db_work'] }}, использует инвентарь с ID: {{ just_user['db_id_inventory'] }}</p>
+    {% endfor %}
+    {% for just_user in just_users_whithout_inv %}
+      <p>{{ just_user['db_name'] }} - {{ just_user['db_work'] }}</p>
+    {% endfor %}
+    {{ null_just_users }}
+  </details>
+{% endblock %}
+
+{% block menu %}
+  <h2>Меню</h2>
+
+  <li><a href="{{ url_for('admin', user_login=user['db_login']) }}">Главная</a></li>
+
+  <li><details>
+    <summary>Инвентарь</summary>
+    <p><a href="{{ url_for('inventory_all', user_login=user['db_login']) }}">Весь</a></p>
+    <p><a href="{{ url_for('inventory_free', user_login=user['db_login']) }}">Доступный</a></p>
+    <p><a href="{{ url_for('inventory_usefull', user_login=user['db_login']) }}">Используемый</a></p>
+    <p><a href="{{ url_for('inventory_broken', user_login=user['db_login']) }}">Сломанный</a></p>
+  </details></li>
+
+  <li><a href="{{ url_for('bought_plan') }}">План закупок</a></li>
+  <li><a href="{{ url_for('reports') }}">Отчёты</a></li>
+
+  <li><details>
+    <summary>Настройки инвентаря</summary>
+    <p><a href="{{ url_for('add_inventory') }}">Добавить инвентарь</a></p>
+    <p><a href="{{ url_for('delete_inventory') }}">Удалить инвентарь</a></p>
+    <p><a href="{{ url_for('fix_inventory') }}">Закрепить инвентарь</a></p>
+    <p><a href="{{ url_for('refix_inventory') }}">Открепить инвентарь</a></p>
+    <p><a href="{{ url_for('replace_to_broken_inventory') }}">Переместить инвентарь в сломанный</a></p>
+    <p><a href="{{ url_for('delete_from_broken_inventory') }}">Удалить инвентарь из сломанного</a></p>
+  </details></li>
+{% endblock %}

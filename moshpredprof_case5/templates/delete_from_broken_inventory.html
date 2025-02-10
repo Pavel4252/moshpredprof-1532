@@ -1,0 +1,19 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Удалить инвентарь из сломанного{% endblock %}
+{% block panel %}Удалить инвентарь из сломанного{% endblock %}
+{% block main %}
+    <p><a href="{{ url_for('admin') }}">Назад</a></p>
+    <br>
+
+    <p>{{ last_text }}</p>
+    <br>
+
+    <p>Переместить инвентарь из сломанного в доступный:</p>
+    <form method="POST">
+        Введите через пробел ID-номера инвентаря <input type="text" name="list_id">
+        <button type="submit">Переместить</button>
+    </form>
+    <br>
+    <p>{{ error }}</p>
+{% endblock %}

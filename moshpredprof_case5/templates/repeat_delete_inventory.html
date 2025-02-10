@@ -1,0 +1,26 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Удалить инвентарь{% endblock %}
+{% block panel %}Удалить инвентарь{% endblock %}
+
+{% block main %}
+    <p><a href="{{ url_for('admin') }}">Назад</a></p>
+    <br>
+
+    <a href="{{ url_for('delete_inventory') }}">Отмена</a>
+    <br>
+
+    <p>Вы уверены что хотите удалить следующий инвентарь:</p>
+    {% for thing in delete_list['usefull'] %}
+        <p>{{ thing['db_id'] }} - {{ thing['db_name'] }} - закреплён за {{ thing['db_user'] }}</p>
+    {% endfor %}
+    <br>
+
+    {% for thing in delete_list['free and broken'] %}
+        <p>{{ thing['db_id'] }} - {{ thing['db_name'] }}</p>
+    {% endfor %}
+    <br>
+
+    <a href="{{ url_for('repeat_delete_inventory') }}">Подтвердить удаление</a>
+    <br>
+{% endblock %}

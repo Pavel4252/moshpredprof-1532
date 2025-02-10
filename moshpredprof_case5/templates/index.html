@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление спортивным инвентарем</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Школьный инвентарь</div>
+    </header>
+
+    <section class="main">
+
+        <h1>Добро пожаловать в систему управления спортивным инвентарем</h1>
+        <br>
+
+        <p>Вход:</p>
+        <br>
+        <form method="POST">
+            Логин <input type="text" name="login">
+            Пароль <input type="text" name="password">
+            <button type="submit">Войти</button>
+        </form>
+        <br>
+        <p>{{ error }}</p>
+        <br>
+
+        <p>Регистрация:</p>
+        <p><a href="{{ url_for('register', user_type='admin') }}">для админа</a></p>
+        <p><a href="{{ url_for('register', user_type='just_user') }}">для пользователя</a></p>
+
+    </section>
+
+</body>
+</html>

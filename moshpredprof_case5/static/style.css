@@ -1,0 +1,199 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* Шапка */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2a9df4;
+    padding: 15px 30px;
+    color: white;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Главная страница */
+.main {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.main h1 {
+    margin-bottom: 30px;
+}
+
+.main .buttons button {
+    padding: 10px 20px;
+    margin-top: 100px;
+    border: none;
+    background-color: #2a9df4;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.main .buttons button:hover {
+    background-color: #237ac3;
+}
+
+/* Панель управления */
+.dashboard {
+    display: flex;
+    height: 100%;
+}
+
+.dashboard aside {
+    width: 250px;
+    background-color: #34495e;
+    color: white;
+    padding: 20px;
+}
+
+.dashboard aside h2 {
+    margin-bottom: 20px;
+}
+
+.dashboard aside ul {
+    list-style: none;
+}
+
+.dashboard aside ul li {
+    margin-bottom: 15px;
+}
+
+.dashboard aside ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.dashboard aside ul li a:hover {
+    text-decoration: underline;
+}
+
+.dashboard main {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #ecf0f1;
+}
+
+.dashboard main h2 {
+    margin-bottom: 20px;
+}
+
+/* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Шапка */
+        header {
+            background-color: #e67e22;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            margin: 0;
+        }
+
+        /* Контент */
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #e67e22;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        form input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        form input[type="submit"] {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #d35400;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background-color: #d35400;
+        }

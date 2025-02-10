@@ -1,0 +1,60 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Инвентарь{% endblock %}
+{% block panel %}Инвентарь{% endblock %}
+
+{% block main %}
+    {% for name in inventory.keys() %}
+        <details>
+            <summary>{{ name }} ({{ inventory[name]['count'] }} шт.)</summary>
+            <br>
+            <p>Доступный ({{ inventory[name]['free']['count'] }} шт.):</p>
+            {% for thing in inventory[name]['free']['things'] %}
+                <p>ID - {{ thing['db_id'] }}</p>
+            {% endfor %}
+            {{ null_free }}
+            <br>
+            <p>Используемый ({{ inventory[name]['usefull']['count'] }} шт.):</p>
+            {% for thing in inventory[name]['usefull']['things'] %}
+                <p>ID - {{ thing['db_id'] }}, использует - {{ thing['db_user'] }}</p>
+            {% endfor %}
+            {{ null_usefull }}
+            <br>
+            <p>Сломанный ({{ inventory[name]['broken']['count'] }} шт.):</p>
+            {% for thing in inventory[name]['broken']['things'] %}
+                <p>ID - {{ thing['db_id'] }}, проблема - {{ thing['db_problem_description'] }}</p>
+            {% endfor %}
+            {{ null_broken }}
+            <br>
+        </details>
+    {% endfor %}
+    {{ null_all }}
+{% endblock %}
+
+{% block menu %}
+    <h2>Меню</h2>
+
+    <li><a href="{{ url_for('admin') }}">Главная</a></li>
+
+    <li><details>
+        <summary>Инвентарь</summary>
+        <p><a href="{{ url_for('inventory_free') }}">Доступный</a></p>
+        <p><a href="{{ url_for('inventory_usefull') }}">Используемый</a></p>
+        <p><a href="{{ url_for('inventory_broken') }}">Сломаный</a></p>
+    </details></li>
+
+    <li><a href="{{ url_for('show_users') }}">Пользователи</a></li>
+    <li><a href="{{ url_for('bought_plan') }}">План закупок</a></li>
+    <li><a href="{{ url_for('reports') }}">Отчёты</a></li>
+
+    <li><details>
+        <summary>Настройки инвентаря</summary>
+        <p><a href="{{ url_for('add_inventory') }}">Добавить инвентарь</a></p>
+        <p><a href="{{ url_for('delete_inventory') }}">Удалить инвентарь</a></p>
+        <p><a href="{{ url_for('fix_inventory') }}">Закрепить инвентарь</a></p>
+        <p><a href="{{ url_for('refix_inventory') }}">Открепить инвентарь</a></p>
+        <p><a href="{{ url_for('replace_to_broken_inventory') }}">Переместить инвентарь в сломанный</a></p>
+        <p><a href="{{ url_for('delete_from_broken_inventory') }}">Удалить инвентарь из сломанного</a></p>
+    </details></li>
+{% endblock %}
+

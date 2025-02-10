@@ -1,0 +1,20 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Мой инвентарь{% endblock %}
+{% block panel %}Мой инвентарь{% endblock %}
+
+{% block main %}
+    {% for thing in my_inv %}
+        <p>ID - {{ thing['db_id'] }}, {{ thing['db_name'] }}</p>
+    {% endfor %}
+    <p>{{ null_my }}</p>
+{% endblock %}
+
+{% block menu %}
+    <h2>Меню</h2>
+
+    <li><a href="{{ url_for('just_user') }}">Главная</a></li>
+    <li><a href="{{ url_for('names_free_inventory') }}">Доступный инвентарь</a></li>
+    <li><a href="{{ url_for('zayavka_from_user') }}">Подать заявку на получение инвентаря</a></li>
+    <li><a href="{{ url_for('message_about_break') }}">Сообщить о поломке инвентаря</a></li>
+{% endblock %}

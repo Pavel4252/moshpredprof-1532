@@ -1,0 +1,27 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Сообщение о поломке инвентаря{% endblock %}
+{% block panel %}Сообщение о поломке инвентаря{% endblock %}
+
+{% block main %}
+    <p>{{ last_text }}</p>
+    <br>
+
+    <p>Сообщить о поломке:</p>
+    <form method="POST">
+        Введите ID<input type="text" name="id_inventory">
+        Опишите проблему <input type="text" name="problem_description">
+        <button type="submit">Отправить</button>
+    </form>
+    <br>
+    <p>{{ error }}</p>
+{% endblock %}
+
+{% block menu %}
+    <h2>Меню</h2>
+
+    <li><a href="{{ url_for('just_user') }}">Главная</a></li>
+    <li><a href="{{ url_for('my_inventory') }}">Мой инвентарь</a></li>
+    <li><a href="{{ url_for('names_free_inventory') }}">Доступный инвентарь</a></li>
+    <li><a href="{{ url_for('zayavka_from_user') }}">Подать заявку на получение инвентаря</a></li>
+{% endblock %}

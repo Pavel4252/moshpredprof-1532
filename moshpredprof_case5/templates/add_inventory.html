@@ -1,0 +1,21 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Добавить инвентарь{% endblock %}
+{% block panel %}Добавить инвентарь{% endblock %}
+{% block main %}
+    <p><a href="{{ url_for('admin') }}">Назад</a></p>
+    <br>
+    <p>{{ list_id_text }}</p>
+    {% for id in list_id %}
+    <p>{{ id }}</p>
+    {% endfor %}
+    <br>
+    <p>Добавить инвентарь:</p>
+    <form method="POST">
+        Название <input type="text" name="name">
+        Количество <input type="text" name="count">
+        <button type="submit">Добавить</button>
+    </form>
+    <br>
+    <p>{{ error }}</p>
+{% endblock %}

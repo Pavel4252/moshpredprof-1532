@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+
+    <header>
+        <div class="logo">{% block panel %}{% endblock %}, использует - {{ user['db_name'] }} - {{ user['db_work'] }}</div>
+        <nav>
+            <p><a href="{{ url_for('index') }}">Выйти</a></p>
+            <p><a href="{{ url_for('notification') }}">Центр уведомлений</a></p>
+        </nav>
+    </header>
+
+    <section class="dashboard">
+        <aside>
+            <ul>
+                {% block menu %}{% endblock %}
+            </ul>
+        </aside>
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+    </section>
+
+    {% block buttons %}{% endblock %}
+
+</body>
+</html>
