@@ -40,6 +40,10 @@
 
 
 
+## Ссылка на видео
+https://rutube.ru/video/private/0db328083e8b9f09a1d967be9d3b446d/?p=u_0dUOHUgHaszvhJNDa5Fw
+
+
 ## Блок-схема основного алгоритма
 
 ```mermaid
