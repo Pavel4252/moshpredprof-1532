@@ -1,0 +1,23 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Закрепить инвентарь{% endblock %}
+{% block panel %}Закрепить инвентарь{% endblock %}
+
+{% block main %}
+    <p><a href="{{ url_for('admin') }}">Назад</a></p>
+    <br>
+
+    <a href="{{ url_for('fix_inventory') }}">Отмена</a>
+    <br>
+
+    <p>Вы уверены, что хотите закрепить за пользователем {{user_name}} инвентарь - {{ inventory_name }} ({{ count }} шт.):</p>
+    <br>
+    {% for id in fix_list %}
+    <p>ID - {{ id }}</p>
+    {% endfor %}
+    <br>
+
+    {{ not_enough_count }}
+
+    <a href="{{ url_for('repeat_fix_inventory', fix_list=fix_list_str) }}">Подтвердить закрепление</a>
+{% endblock %}
