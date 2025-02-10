@@ -1,0 +1,23 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Закрепить инвентарь{% endblock %}
+{% block panel %}Закрепить инвентарь{% endblock %}
+
+{% block main %}
+    <p><a href="{{ url_for('admin') }}">Назад</a></p>
+    <br>
+
+    <p>{{ last_fix_text }}</p>
+    <br>
+
+    <p>Закрепить инвентарь:</p>
+    <br>
+    <form method="POST">
+        Введите имя пользователя <input type="text" name="user_name">
+        Введите название инвентаря <input type="text" name="inventory_name">
+        Введите колличество предметов <input type="text" name="inventory_count">
+        <button type="submit">Закрепить</button>
+    </form>
+    <br>
+    <p>{{ error }}</p>
+{% endblock %}

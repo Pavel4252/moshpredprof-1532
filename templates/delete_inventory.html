@@ -1,0 +1,26 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Удалить инвентарь{% endblock %}
+{% block panel %}Удалить инвентарь{% endblock %}
+{% block main %}
+    <p><a href="{{ url_for('admin') }}">Назад</a></p>
+    <br>
+
+    <p>{{ delete_text }}</p>
+    {% for thing in delete_list['usefull'] %}
+    <p>{{ thing['db_id'] }} - {{ thing['db_name'] }} - закреплён за {{ thing['db_user'] }}</p>
+    {% endfor %}
+    <br>
+    {% for thing in delete_list['free and broken'] %}
+    <p>{{ thing['db_id'] }} - {{ thing['db_name'] }}</p>
+    {% endfor %}
+    <br>
+
+    <p>Удалить инвентарь:</p>
+    <form method="POST">
+        Введите через пробел ID-номера инвентаря <input type="text" name="list_id">
+        <button type="submit">Удалить</button>
+    </form>
+    <br>
+    <p>{{ error }}</p>
+{% endblock %}
